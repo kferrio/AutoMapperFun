@@ -4,7 +4,7 @@
 }
 
 <div class="row">
-    <div class="col-sm-4 col-sm-offset-4">
+    <div class="col-sm-6 col-sm-offset-3">
         
         <h2>Welcome, @Model.FirstName @Model.LastName</h2>
 
@@ -20,6 +20,15 @@
                     <dt>State</dt>
                     <dd>@Model.StateName</dd>
                     
+                    <dt>Role</dt>
+                    <dd>@Model.RoleName  [@Model.Role]</dd>
+
+                    <dt>Facilities</dt>
+                    @foreach(string f in Model.FacilitiesNames)
+                    {
+                        <dd>@f</dd>
+                    }
+
                     <dt><a href="@Url.Action("UserProfile")">Edit profile</a></dt>
                 </dl>
             </div>
