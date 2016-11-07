@@ -2,6 +2,10 @@
 using System.Web.Mvc;
 using Dropdowns.Models;
 using System.Linq;
+using MyService.Models;
+using MyService.Controllers;
+using AutoMapper;
+using AutoMapper.Mappers;
 
 namespace Dropdowns.Controllers
 {
@@ -39,6 +43,19 @@ namespace Dropdowns.Controllers
             // redirect a user to the "ViewProfile" page, and pass the user object along via Session
             if (ModelState.IsValid)
             {
+                // get ready to call service layer to do some work
+                
+                // pedestrain way
+                RegistrationData regData1 = new RegistrationData { Name = model.GetName, State = model.State };
+                
+                // kool kidz sez, yuz AutoMapper 5.
+                Mapper.Initialize(cfg => cfg.CreateMap<UserProfileModel, RegistrationData>());
+                RegistrationData regData2 = Mapper.Map<RegistrationData>(model);
+
+                // Call the service
+                bool result = DoAllTheThings.RegisterUser(regData2);
+
+                // Show results
                 Session["UserProfileModel"] = model;
                 return RedirectToAction("ViewProfile");
             }
@@ -81,55 +98,18 @@ namespace Dropdowns.Controllers
             return new Dictionary<string, string>
             {
                 {"AK", "Alaska"},
-                {"AL", "Alabama"},
-                {"AR", "Arkansas"},
                 {"AZ", "Arizona"},
                 {"CA", "California"},
                 {"CO", "Colorado"},
                 {"CT", "Connecticut"},
-                {"DC", "District Of Columbia"},
-                {"DE", "Delaware"},
-                {"FL", "Florida"},
                 {"GA", "Georgia"},
                 {"HI", "Hawaii"},
-                {"IA", "Iowa"},
                 {"ID", "Idaho"},
-                {"IL", "Illinois"},
-                {"IN", "Indiana"},
-                {"KS", "Kansas"},
-                {"KY", "Kentucky"},
-                {"LA", "Louisiana"},
-                {"MA", "Massachusetts"},
-                {"MD", "Maryland"},
-                {"ME", "Maine"},
-                {"MI", "Michigan"},
                 {"MN", "Minnesota"},
-                {"MO", "Missouri"},
-                {"MS", "Mississippi"},
-                {"MT", "Montana"},
-                {"NC", "North Carolina"},
-                {"ND", "North Dakota"},
-                {"NE", "Nebraska"},
-                {"NH", "New Hampshire"},
-                {"NJ", "New Jersey"},
                 {"NM", "New Mexico"},
                 {"NV", "Nevada"},
-                {"NY", "New York"},
-                {"OH", "Ohio"},
-                {"OK", "Oklahoma"},
                 {"OR", "Oregon"},
                 {"PA", "Pennsylvania"},
-                {"RI", "Rhode Island"},
-                {"SC", "South Carolina"},
-                {"SD", "South Dakota"},
-                {"TN", "Tennessee"},
-                {"TX", "Texas"},
-                {"UT", "Utah"},
-                {"VA", "Virginia"},
-                {"VT", "Vermont"},
-                {"WA", "Washington"},
-                {"WI", "Wisconsin"},
-                {"WV", "West Virginia"},
                 {"WY", "Wyoming"}
             };
         }

@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.30723.0
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dropdown-dictionary", "Dropdown-dictionary\Dropdown-dictionary.csproj", "{B1D9D933-2A10-4822-BC48-A74B36F4BCCA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyService", "MyService\MyService.csproj", "{9AACAE34-8139-4577-AEAC-CA2DF4F811A0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{B1D9D933-2A10-4822-BC48-A74B36F4BCCA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B1D9D933-2A10-4822-BC48-A74B36F4BCCA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B1D9D933-2A10-4822-BC48-A74B36F4BCCA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9AACAE34-8139-4577-AEAC-CA2DF4F811A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9AACAE34-8139-4577-AEAC-CA2DF4F811A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9AACAE34-8139-4577-AEAC-CA2DF4F811A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9AACAE34-8139-4577-AEAC-CA2DF4F811A0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

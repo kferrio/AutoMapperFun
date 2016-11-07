@@ -37,5 +37,11 @@ namespace Dropdowns.Models
         public string StateName { get; set; }
         public string RoleName { get; set; }
         public string[] FacilitiesNames { get; set; }
+        public string GetName {
+            get
+            {
+                return $"{FirstName.Trim()} {LastName.Trim()}";
+            }
+        }
     }
 }
